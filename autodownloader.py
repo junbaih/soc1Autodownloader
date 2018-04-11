@@ -19,35 +19,13 @@ def get_file_urls(url:str="https://eee.uci.edu/18w/69004/readingsummaries")->(na
         Eitzen_Summaries_l = tree.xpath('//*[@id="module2"]')
         Loewen_Summaries_l = tree.xpath('//*[@id="module3"]')
         Reader_Summaries_l = tree.xpath('//*[@id="module4"]')
-        #SummaryMapping = dict(Eitzen_Summaries_l=Eitzen,Loewen_Summaries_l=Loewen,Reader_Summaries_l=Reader)
+       
         for booklist, Scol in [(Eitzen_Summaries_l,Eitzen),(Loewen_Summaries_l,Loewen),(Reader_Summaries_l,Reader)]:
             summaries = booklist[0].cssselect('a')
             for i in summaries:
                 #Scol[1].add(i.attrib)
                 Scol[1].add(i.attrib['href'])
-            #        sample = tree.xpath('//div[@ng-repeat="itinerary in sortedResults | limitTo:numItinsOnPage"]/text()')
-        #stringtest = tree.xpath('/html[@lang]')
-        
-        
-
-        
-        #sample = tree.xpath('//*[@id="module3"]/ul/li[3]/div[1]') # tree.xpath('//*[@id="body"]/main/div/ui-view[@class="ng=scope"]')#/ui-view/ui-view/div/div/div[1]')
-        #sample2 = tree.xpath('//*[@id="module3"]/ul/li[3]/div[1]')#/ui-view/ui-view/div/div/div[1]')
-        #sample3 = tree.xpath('//*[@id="module3"]/ul/li[3]/div[1]/a')
-        #sample4 = tree.xpath('//*[@id="pricePoint0"]')
-        #sample5 = tree.xpath('//@parameter2')
-#        sample = tree.cssselect('div[ui-view su-block class = "ng-scope"]')
-        #flightlist = tree.find_class("col-md-8")
-        #print(stringtest[0].attrib)
-        #print(sample)
-        #for i in sample:
-        #    print(i.body)
-        #for i in sample3:
-        #    print(i.attrib['href'])
-        #print(sample2)
-        #print(sample3)
-        #print(sample4)
-        #print(sample5)
+           
     except:
         raise WebError
     finally:
